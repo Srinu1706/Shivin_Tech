@@ -10,12 +10,12 @@ public class CheckIdCard {
                     "ID Card Number is required. Access Denied!");
         }
 
-        System.out.println("Access Granted");
+        System.out.println("Access Granted "+idCardNo);
     }
 
     public static void main(String[] args) {
         try {
-            verifyIdCard("12345");
+            verifyIdCard("8790");
         } catch (InvalidIdCardException e) {
             System.out.println(e.getMessage());
         }

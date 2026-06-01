@@ -16,7 +16,7 @@ static void withDraw(double amount,double balance ) throws InsufficientBalanceEx
 }
 public static void main(String[] args) {
     try{
-        withDraw(1000, 5000);
+        withDraw(6000, 5000);
     }catch(InsufficientBalanceException exception){
         System.out.println(exception.getMessage());
     }

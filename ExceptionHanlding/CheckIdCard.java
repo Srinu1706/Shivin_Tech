@@ -15,7 +15,7 @@ public class CheckIdCard {
 
     public static void main(String[] args) {
         try {
-            verifyIdCard("8790");
+            verifyIdCard("SAI");
         } catch (InvalidIdCardException e) {
             System.out.println(e.getMessage());
         }

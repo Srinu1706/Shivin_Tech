@@ -1,3 +1,4 @@
+package Logical;
 public class UnusedVaribles {
     public static void main(String[] args) {
         @SuppressWarnings("unused")

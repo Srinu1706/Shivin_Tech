@@ -1,3 +1,4 @@
+package Logical;
 public class Amstrong {
     public static void main(String[] args) {
         int number = 153;

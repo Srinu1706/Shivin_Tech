@@ -1,3 +1,4 @@
+package Logical;
 public class Move0toEnd {
     public static void main(String[] args) {
         int arr []={1,2,0,3,4,0,5,0};  

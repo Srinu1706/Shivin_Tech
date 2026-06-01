@@ -1,3 +1,4 @@
+package Logical;
 public class Fibb {
     public static void main(String[] args) {
         int a = 0;

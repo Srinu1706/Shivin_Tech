@@ -61,7 +61,7 @@ public class Emplyoee_Driver {
         Double totalSal = list.stream().mapToDouble(Emplyoee::getSalary).sum();
         System.out.println(totalSal);
 
-        ///////////////////////////////////////////////////////////////////////////////////////////////////
+        //////////////////////////////////////////////////////////////////////////////////////////////////
 
         Emplyoee e3 = list.stream().sorted((c, d) -> Double.compare(c.getSalary(), d.getSalary())).findFirst().get();
         System.out.println(e3.getName()); // min sal emp name
@@ -101,5 +101,40 @@ public class Emplyoee_Driver {
         ln.forEach((Name3) -> {
             System.out.println(Name3.getName());
         });
+
+        Map<String, List<String>> e = list.stream().collect(Collectors.groupingBy(Emplyoee::getDepartment,
+                Collectors.mapping(Emplyoee::getName, Collectors.toList())));
+        System.out.println(e);
+
+        /////////////////////////////////////////////////////////////////////////////////////////////
+        // find Avg sal Dept Wise
+
+        Map<String,Double> avg=list.stream().collect(Collectors.groupingBy(Emplyoee::getDepartment,Collectors.averagingDouble(Emplyoee::getSalary)));
+        System.out.println(avg);
+
+        //find the MaxSal DeptWise
+
+        Map<String ,Optional<Emplyoee>> minDeptsal=list.stream().collect(Collectors.groupingBy(Emplyoee::getDepartment,Collectors.minBy((a,b)->Double.compare(a.getSalary(), b.getSalary()))));
+        // System.out.println(maxDeptsal);
+
+        minDeptsal.forEach((dept,Maxsal)->{
+                Maxsal.ifPresent(emp->{
+                        System.out.println(emp.getSalary() +" "+emp.getName()+" "+emp.getDepartment());
+                });
+        });
+        System.out.println();
+             Map<String ,Optional<Emplyoee>> maxDeptsal=list.stream().collect(Collectors.groupingBy(Emplyoee::getDepartment,Collectors.maxBy((a,b)->Double.compare(a.getSalary(), b.getSalary()))));
+        // System.out.println(maxDeptsal);
+
+        maxDeptsal.forEach((dept,Maxsal)->{
+                Maxsal.ifPresent(emp->{
+                        System.out.println(emp.getSalary() +" "+emp.getName()+" "+emp.getDepartment());
+                });
+        });
+
+        List<Emplyoee> namess=list.stream().filter(n->n.getName().toLowerCase().startsWith("s")).collect(Collectors.toList());
+        System.out.println(namess);
+
+        
+        }
     }
-}

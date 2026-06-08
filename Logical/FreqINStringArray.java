@@ -8,8 +8,12 @@ public class FreqINStringArray {
 
         Map<String, Integer> map = new LinkedHashMap<>();
 
-        for (String name : arr) {
-            map.put(name, map.getOrDefault(name, 0) + 1);
+        // for (String name : arr) {
+        //     map.put(name, map.getOrDefault(name, 0) + 1);
+        // }
+
+        for(String name:arr){
+            map.put(name,map.getOrDefault(name, 0)+1);
         }
 
         for (Map.Entry<String, Integer> entry : map.entrySet()) {
